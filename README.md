@@ -30,28 +30,34 @@ The hk.net KMS enables authorised users to efficiently search and retrieve archi
 ## Architecture
 
 The system is decomposed into specialised service layers following separation of concerns:
+
+```
 ┌─────────────────────────────────────────┐
 │              Facade Layer               │
 └────────────┬────────────────────────────┘
-│
-┌────────▼────────┐
-│   AuthService   │  → User credentials & access control
-│ ProjectService  │  → Project data & subscriptions
-│  EmailService   │  → Filtered search & retrieval
-│AttachmentService│  → Secure file downloads
-│ StorageService  │  → Exports for auditing & portability
-└─────────────────┘
+             │
+    ┌────────▼─────────┐
+    │   AuthService    │  → User credentials & access control
+    │  ProjectService  │  → Project data & subscriptions
+    │  EmailService    │  → Filtered search & retrieval
+    │AttachmentService │  → Secure file downloads
+    │  StorageService  │  → Exports for auditing & portability
+    └──────────────────┘
+```
 
 ---
 
 ## Project Structure
+
+```
 hk-net-kms/
 ├── src/
 │   └── ...          # Java source — domain model & service logic
 ├── tests/
 │   └── ...          # JUnit 5 tests validating OCL constraints
 └── docs/
-└── ...          # UML diagrams & risk analysis
+    └── ...          # UML diagrams & risk analysis
+```
 
 ---
 
@@ -63,3 +69,5 @@ hk-net-kms/
 - **Maven** — dependency and build management
 
 ---
+
+*Developed by Mohammed Adnan — Applied Software Engineering, University of West London*
