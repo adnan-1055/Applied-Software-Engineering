@@ -1,45 +1,65 @@
-hk.net Knowledge Management System (KMS)
-This repository contains the software design and implementation of the hk.net Knowledge Management System, a project developed to demonstrate core principles of Applied Software Engineering.
+# hk.net Knowledge Management System
 
-Overview
-The system enables authorized users to efficiently search and retrieve archived project emails, view metadata, download attachments, and subscribe to project updates. The design follows a strict modular approach to ensure scalability and ease of maintenance.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
+![Draw.io](https://img.shields.io/badge/Draw.io-F08705?style=for-the-badge&logo=diagrams.net&logoColor=white)
 
-Key Features
-Comprehensive UML Modelling: Includes Use Case, Class, Sequence, and Component diagrams.
+> A software design and implementation project demonstrating core principles of Applied Software Engineering — developed as part of UWL CS AY2025-26.
 
-Design Patterns: Implementation of the Observer Pattern to manage notifications and the Facade Pattern to centralize system control.
+---
 
-Robust Business Logic: Enforced using Object Constraint Language (OCL) to manage invariants, preconditions, and postconditions.
+## Overview
 
-Automated Testing: Unit testing with JUnit 5 to validate system constraints and business rules.
+The hk.net KMS enables authorised users to efficiently search and retrieve archived project emails, view metadata, download attachments, and subscribe to project updates. The design follows a strict modular architecture to ensure scalability and ease of maintenance.
 
-Risk Management: A detailed risk register addressing data quality, performance, and security.
+---
 
-Architecture
-The system is decomposed into specialized service layers to promote separation of concerns:
+## Key Features
 
-AuthService: Handles user credentials and access control.
+| Feature | Description |
+|---|---|
+| 📐 UML Modelling | Use Case, Class, Sequence, and Component diagrams |
+| 🔁 Design Patterns | Observer Pattern (notifications) + Facade Pattern (system control) |
+| 📏 Business Logic | Enforced via OCL — invariants, preconditions, postconditions |
+| 🧪 Automated Testing | JUnit 5 unit tests validating system constraints |
+| ⚠️ Risk Management | Detailed risk register covering data quality, performance, and security |
 
-ProjectService: Manages project data and subscriptions.
+---
 
-EmailService: Executes filtered searches and retrieves email details.
+## Architecture
 
-AttachmentService: Facilitates secure file downloads.
+The system is decomposed into specialised service layers following separation of concerns:
+┌─────────────────────────────────────────┐
+│              Facade Layer               │
+└────────────┬────────────────────────────┘
+│
+┌────────▼────────┐
+│   AuthService   │  → User credentials & access control
+│ ProjectService  │  → Project data & subscriptions
+│  EmailService   │  → Filtered search & retrieval
+│AttachmentService│  → Secure file downloads
+│ StorageService  │  → Exports for auditing & portability
+└─────────────────┘
 
-StorageService: Handles exports for auditing or portability.
+---
 
-Project Structure
-src/: Java source code implementing the domain model and service logic.
+## Project Structure
+hk-net-kms/
+├── src/
+│   └── ...          # Java source — domain model & service logic
+├── tests/
+│   └── ...          # JUnit 5 tests validating OCL constraints
+└── docs/
+└── ...          # UML diagrams & risk analysis
 
-tests/: Unit tests validating invariants and OCL constraints.
+---
 
-docs/: Design artifacts including UML diagrams and risk analysis.
+## Technologies Used
 
-Technologies Used
-Java: Backend implementation using object-oriented principles.
+- **Java** — backend implementation using OOP principles
+- **JUnit 5** — unit testing and constraint verification
+- **Draw.io** — UML modelling
+- **Maven** — dependency and build management
 
-JUnit 5: Unit testing and verification.
-
-Draw.io: UML modelling tool.
-
-Maven: Dependency and build management.
+---
